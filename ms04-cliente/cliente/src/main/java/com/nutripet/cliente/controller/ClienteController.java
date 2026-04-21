@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nutripet.cliente.main.Cliente;
+import com.nutripet.cliente.model.Cliente;
 import com.nutripet.cliente.service.ClienteService;
 
 import jakarta.validation.Valid;
