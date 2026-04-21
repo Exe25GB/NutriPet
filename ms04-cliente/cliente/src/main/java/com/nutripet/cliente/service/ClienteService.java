@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.nutripet.cliente.main.Cliente;
+import com.nutripet.cliente.model.Cliente;
 import com.nutripet.cliente.repository.ClienteRepository;
 
 import lombok.RequiredArgsConstructor;
