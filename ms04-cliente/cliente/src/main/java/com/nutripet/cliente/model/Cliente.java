@@ -1,4 +1,4 @@
-package com.nutripet.cliente.main;
+package com.nutripet.cliente.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +35,7 @@ public class Cliente {
     @Column(name = "razon_social", nullable = true, length = 100)
     private String razonSocial;
 
-    @NotBlank(message = "La direecion de despacho es obligatorio")
+    @NotBlank(message = "La direccion de despacho es obligatorio")
     @Size(max = 250, message = "La dirrecion es demasiado larga")
     @Column(name = "direccio_despacho", nullable = false, length = 250)
     private String direccionDespacho;
