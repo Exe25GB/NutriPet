@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.nutripet.cliente.main.Cliente;
+import com.nutripet.cliente.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
