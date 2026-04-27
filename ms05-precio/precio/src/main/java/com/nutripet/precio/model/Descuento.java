@@ -1,6 +1,7 @@
 package com.nutripet.precio.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,31 +9,32 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@mapea la clase para poder estructurar en la base de datos
-//@nombre de la tabla
 @Entity
-@Table(name = "Precio")
-//funciones @gets y setter @contructores llenos @contructores vacios
+@Table(name = "descuento")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Precio {
+public class Descuento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
-    private Long idPrecio;
+    private Long idDescuento;
 
     //>id_producto< es una clave forania de la Clase producto del ms02-producto
 
-    @NotNull(message = "Debe existir un precio base")
-    @PositiveOrZero(message = "El precio ingresado es invalido (PositiveOrZero)")
-    @Column(name = "precio_base", nullable = false)
-    private BigDecimal precioBase;
+    private TipoCliente tipoCliente;
+
+    private BigDecimal porcentajeDescuento;
+
+    private BigDecimal compraMinima;
+
+    private LocalDateTime fechaInicio;
+
+    private LocalDateTime fechaFinal;
+
 
 }
