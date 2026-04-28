@@ -3,6 +3,7 @@ package com.nutripet.cliente.dto;
 import com.nutripet.cliente.model.TipoCliente;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClienteRequestDTO {
+    @NotNull(message = "El usuario tiene que estar registrado")
+    private Long idUsuario;
+
     @NotBlank(message = "Se tiene que definir si es 'MINORISTA' o 'MAYORISTA'")
     private TipoCliente tipoCliente;
 

@@ -21,22 +21,20 @@ import lombok.NoArgsConstructor;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
     private Long idCliente;
 
     //>id_usuario< es una clave forania de la Clase Usuario del ms01-usuario
-    @JoinColumn(name = "id_usuario", nullable = false)
-    @Column(name = "id_usuario")
+    @JoinColumn(nullable = false)
     private Long idUsuario;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_cliente", nullable = false)
+    @Column(nullable = false)
     private TipoCliente tipoCliente;
 
-    @Column(name = "razon_social", nullable = true, length = 100)
+    @Column(nullable = true, length = 100)
     private String razonSocial;
 
-    @Column(name = "direccio_despacho", nullable = false, length = 250)
+    @Column(nullable = false, length = 250)
     private String direccionDespacho;
 
 

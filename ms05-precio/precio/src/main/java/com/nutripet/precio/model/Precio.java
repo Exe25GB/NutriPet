@@ -7,9 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,14 +25,14 @@ import lombok.NoArgsConstructor;
 public class Precio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
     private Long idPrecio;
 
     //>id_producto< es una clave forania de la Clase producto del ms02-producto
+    @ManyToOne //M:N
+    @JoinColumn //KF
+    private Long idProducto;
 
-    @NotNull(message = "Debe existir un precio base")
-    @PositiveOrZero(message = "El precio ingresado es invalido (PositiveOrZero)")
-    @Column(name = "precio_base", nullable = false)
+    @Column(nullable = false)
     private BigDecimal precioBase;
 
 }
