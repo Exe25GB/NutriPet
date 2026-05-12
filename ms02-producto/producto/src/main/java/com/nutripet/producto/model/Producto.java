@@ -35,7 +35,7 @@ public class Producto {
 
     //Descripción de producto.
     @Column(nullable = false)
-    private String descProducto;
+    private String descripProducto;
     
     //Clave foránea
     @JoinColumn(nullable = false)

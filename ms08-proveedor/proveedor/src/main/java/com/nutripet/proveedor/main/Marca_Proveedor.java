@@ -1,5 +1,6 @@
 package com.nutripet.proveedor.main;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,5 +20,8 @@ public class Marca_Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMarca;
+
+    @Column(nullable = false)
+    private String nombreMarca;
 
 }
