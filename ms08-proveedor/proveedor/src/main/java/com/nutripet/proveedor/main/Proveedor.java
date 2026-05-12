@@ -31,4 +31,5 @@ public class Proveedor {
     private String condicionesProveedor;
 
 
+
 }

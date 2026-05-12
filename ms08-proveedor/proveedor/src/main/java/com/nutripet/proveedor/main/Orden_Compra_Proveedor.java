@@ -16,17 +16,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Ordenes_Compra_Proveedor {
+public class Orden_Compra_Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idOrdenes;
+    private Long idOrden;
 
     @JoinColumn(nullable = false)
     private Long idProveedor;
 
     @Column(nullable = false)
-    private String estadoOrdenes;
+    private String estadoOrden;
 
     
 
