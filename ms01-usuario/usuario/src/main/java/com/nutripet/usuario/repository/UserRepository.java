@@ -12,7 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
     
     List<User> findByNombreContainingIgnoreCase(String nombre);
 
-    
     List<User> findByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.tipoUsuario.id = :tipoId")

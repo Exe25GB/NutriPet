@@ -35,8 +35,8 @@ public class DataInitializer{
 
                 User admin = new User(
                         null,
-                        "Admin PetFood",
-                        "admin@petfood.com",
+                        "Admin NutriPet",
+                        "admin@NutriPet.com",
                         "admin123",
                         "Sede Principal",
                         tipoAdmin
