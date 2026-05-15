@@ -30,7 +30,11 @@ public class ProductoRequestDTO {
 
     @NotNull(message = "El id de la categoria es obligatorio.")
     @Positive(message = "El id de la categoria debe de ser positivo.")
-    private long idCategoria;
+    private Long idCategoria;
+
+    @NotNull(message = "El id del atributo es obligatorio.")
+    @Positive(message = "El id del atributo debe de ser positivo.")
+    private Long idAtributo;
 
 
 

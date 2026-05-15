@@ -9,14 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoReponseDTO {
+public class ProductoResponseDTO {
 
     private Long idProducto;
     private Long skuProducto;
     private String nombreProducto;
     private BigDecimal pesoProducto;
     private String descripProducto;
-    private long idCategoria;
+    private Long idCategoria;
+    private Long idAtributo;
 
     private String tipoAtributo;
     private String nombreCategoria;
