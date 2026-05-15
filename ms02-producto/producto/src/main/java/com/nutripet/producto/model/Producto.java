@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,9 +36,11 @@ public class Producto {
     @Column(nullable = false)
     private String descripProducto;
     
-    //Clave foránea
-    @JoinColumn(nullable = false)
-    private long idCategoria;
+    @Column(nullable = false)
+    private Long idCategoria;
+
+    @Column(nullable = false)
+    private Long idAtributo;
 
 
 
