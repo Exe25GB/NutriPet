@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,28 +25,30 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProducto;
 
-    @Column(nullable = false)
-    private Long skuProducto;
+    @Column(unique = true, nullable = false, length = 50)
+    private String sku; 
 
-    @Column(nullable = false)
-    private String nombreProducto;
+    @Column(nullable = false, length = 255)
+    private String nombre;
 
-    @Column(nullable = false)
-    private BigDecimal pesoProducto;
+    @Column(precision = 8, scale = 2)
+    private BigDecimal peso;
 
-    //Descripción de producto.
-    @Column(nullable = false)
-    private String descripProducto;
+    @Column(columnDefinition = "TEXT")
+    private String descripcion;
     
-    @Column(nullable = false)
-    private Long idCategoria;
+    // >idCategoria< es una clave foranea de la clase categoria
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 
-    @Column(nullable = false)
-    private Long idAtributo;
+    @Column(name = "tipo_mascota", length = 50)
+    private String tipoMascota; 
 
+    @Column(name = "ciclo_vital", length = 50)
+    private String cicloVital; 
 
-
-    
-
+    @Column(length = 100)
+    private String marca;
 
 }

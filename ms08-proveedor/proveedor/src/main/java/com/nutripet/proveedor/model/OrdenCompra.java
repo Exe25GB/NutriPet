@@ -1,33 +1,29 @@
-package com.nutripet.inventario.model;
+package com.nutripet.proveedor.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "inventarios")
+@Table(name = "ordenes_compra")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Inventario_Actual {
+@AllArgsConstructor
+public class OrdenCompra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idInventario;
+    private Long idOrden;
 
-    @JoinColumn(nullable = false)
-    private Long idProducto;
+    @Column(name = "proveedor_id", nullable = false)
+    private Long proveedorId;
 
-    @Column(nullable = false)
-    private Integer stockTotalInventario;
-
-    
-
+    @Column(name = "estado", length = 50, nullable = false)
+    private String estado;
 }

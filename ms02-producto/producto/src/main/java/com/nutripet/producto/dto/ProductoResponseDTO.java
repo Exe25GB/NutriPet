@@ -1,7 +1,6 @@
 package com.nutripet.producto.dto;
 
 import java.math.BigDecimal;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,18 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductoResponseDTO {
 
-    private Long idProducto;
-    private Long skuProducto;
-    private String nombreProducto;
-    private BigDecimal pesoProducto;
-    private String descripProducto;
-    private Long idCategoria;
-    private Long idAtributo;
+    private Long idProducto; 
+    private String sku;
+    private String nombre;
+    private BigDecimal peso;
+    private String descripcion;
+    
+    // Este dato es una clave foranea de la clase <Categoria>
+    private String categoriaNombre;
 
-    private String tipoAtributo;
-    private String nombreCategoria;
-
-
+    // <Atributos>
+    private String tipoMascota;
+    private String cicloVital;
+    private String marca;
 }
-
-

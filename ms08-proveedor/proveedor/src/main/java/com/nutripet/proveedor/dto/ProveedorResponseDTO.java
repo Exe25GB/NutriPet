@@ -11,10 +11,7 @@ public class ProveedorResponseDTO {
 
     private Long idProveedor;
     private String nombreEmpresa;
-    private String datosProveedor;
-    private String condicionesProveedor;
-
-    private String estadoOrden;
-    private String nombreMarca;
-
+    private String datosContacto;
+    private String condiciones;
+    private String marcasOfrecidas;
 }
