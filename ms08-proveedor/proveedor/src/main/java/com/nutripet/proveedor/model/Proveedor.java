@@ -1,4 +1,4 @@
-package com.nutripet.proveedor.main;
+package com.nutripet.proveedor.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,15 +21,15 @@ public class Proveedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProveedor;
 
-    @Column(nullable = false)
+    @Column(name = "nombre_empresa", length = 255, nullable = false)
     private String nombreEmpresa;
 
-    @Column(nullable = false)
-    private String datosProveedor;
+    @Column(name = "datos_contacto", columnDefinition = "TEXT")
+    private String datosContacto;
 
-    @Column(nullable = false)
-    private String condicionesProveedor;
+    @Column(name = "condiciones", columnDefinition = "TEXT")
+    private String condiciones;
 
-
-
+    @Column(name = "marcas_ofrecidas", columnDefinition = "TEXT")
+    private String marcasOfrecidas;
 }

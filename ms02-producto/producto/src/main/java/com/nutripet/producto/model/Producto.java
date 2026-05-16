@@ -27,22 +27,22 @@ public class Producto {
     @Column(nullable = false)
     private String skuProducto;
 
-    @Column(nullable = false)
-    private String nombreProducto;
+    @Column(nullable = false, length = 255)
+    private String nombre;
 
-    @Column(nullable = false)
-    private BigDecimal pesoProducto;
+    @Column(precision = 8, scale = 2)
+    private BigDecimal peso;
 
-    //Descripción de producto.
-    @Column(nullable = false)
-    private String descripProducto;
+    @Column(columnDefinition = "TEXT")
+    private String descripcion;
     
     @JoinColumn(nullable = false)
     private long idCategoria;
 
+    @Column(name = "ciclo_vital", length = 50)
+    private String cicloVital; 
 
-
-    
-
+    @Column(length = 100)
+    private String marca;
 
 }
