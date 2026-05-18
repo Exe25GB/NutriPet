@@ -4,7 +4,6 @@ import com.nutripet.cliente.model.TipoCliente;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,18 +11,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+// DTO DE ENTRADA
 public class ClienteRequestDTO {
-    @NotNull(message = "El usuario tiene que estar registrado")
+    // Estructura al moverse al entrar a la BD
+ // @NotNull: NO VACIO - validaciones de seguridad para evitar datos incorrecto hacia la bd
+    @NotNull(message = "El id del usuario es obligatorio")
     private Long idUsuario;
 
-    @NotBlank(message = "Se tiene que definir si es 'MINORISTA' o 'MAYORISTA'")
+    @NotNull(message = "El tipo de cliente es obligatorio 'MAYORISTA' o 'MINORISTA'")
     private TipoCliente tipoCliente;
 
-    @Size(max = 100, message = "La razón social no puede exceder los 100 caracteres")
     private String razonSocial;
 
-    @NotBlank(message = "La direccion de despacho es obligatorio")
-    @Size(max = 250, message = "La dirrecion es demasiado larga")
-    private String dirrecionDespacho;
+    @NotBlank(message = "El teléfono es obligatorio")
+    private String telefono;
 
 }
