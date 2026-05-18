@@ -1,7 +1,5 @@
 package com.nutripet.cliente.dto;
 
-import com.nutripet.cliente.model.TipoCliente;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,12 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 // DTO DE SALIDA
-public class ClienteResponseDTO {
+public class DireccionResponseDTO {
     // Estructura al moverse por el service
+    private Long idDireccion;
     private Long idCliente;
-    private Long idUsuario;
-    private TipoCliente tipoCliente;
-    private String razonSocial;
-    private String telefono;
+    private String calle;
+    private String numero;
+    private String comuna;
+    private String region;
 
 }
