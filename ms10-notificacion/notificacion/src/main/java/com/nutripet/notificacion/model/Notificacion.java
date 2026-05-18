@@ -27,7 +27,7 @@ public class Notificacion {
     @Column(nullable = false)
     private String destinatario; // Email o número de cel
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(length = 4000, nullable = false)
     private String mensaje;
 
     private LocalDateTime fechaEnvio;
