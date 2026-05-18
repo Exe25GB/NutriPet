@@ -29,10 +29,13 @@ public class Producto {
     @Id
     //Genera automaticamente su valor sumandole un numero mas +1 = 2 la siguiente id +1 = 3
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idProducto;
-
-    @Column(nullable = false)
-    private String skuProducto;
+    private Long idProducto;
+    
+    //'Unique = True' : Identifica que cada valor agregado a la base de datos SI O SI debe ser único.
+    //'Nullable = false' : No se puede guardar un producto en el sistema si el campo del SKU viene vacío o nulo.
+    //'Length = 50' : Cantidad de caracteres que puede tener al ingresar el valor a la tabla.
+    @Column(unique = true, nullable = false, length = 50)
+    private String sku; 
 
     @Column(nullable = false, length = 255)
     private String nombre;
@@ -45,8 +48,16 @@ public class Producto {
     @Column(columnDefinition = "TEXT")
     private String descripcion;
     
-    @JoinColumn(nullable = false)
-    private long idCategoria;
+    //>idCategoria< es una clave foranea de la clase categoria
+
+    //@ManyToOne : "Muchas filas de la tabla de productos pueden apuntar a una sola fila en la tabla de categorías."
+    @ManyToOne
+    //@JoinColumn : Esta es la función de une a la tabla de categoria 
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    @Column(name = "tipo_mascota", length = 50)
+    private String tipoMascota; 
 
     @Column(name = "ciclo_vital", length = 50)
     private String cicloVital; 
