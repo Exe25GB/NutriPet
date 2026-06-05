@@ -1,4 +1,4 @@
-package com.nutripet.precio.controller;
+package com.nutripet.precio.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
