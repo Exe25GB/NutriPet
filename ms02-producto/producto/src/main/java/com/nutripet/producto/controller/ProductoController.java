@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/productos")
 @RequiredArgsConstructor
-@Tag(name = "Producto", description = "Operaciones relacionado a producto")
+@Tag(name = "Producto", description = "Operaciones relacionado a productos")
 public class ProductoController {
 
     private final ProductoService productoService;
@@ -36,7 +36,7 @@ public class ProductoController {
     }
 
     @PostMapping
-        @Operation(summary = "Crear producto", description = "Crear o agregar a traves de registro de datos una o mas productos.")
+        @Operation(summary = "Crear producto", description = "Crear o agregar a traves de registro de datos uno o mas productos.")
     public ResponseEntity<ProductoResponseDTO> crear(@Valid @RequestBody ProductoRequestDTO dto) {
         ProductoResponseDTO nuevo = productoService.guardar(dto);
         return ResponseEntity.status(201).body(nuevo);
@@ -64,7 +64,7 @@ public class ProductoController {
     }
 
     @GetMapping("/sku/{sku}")
-    @Operation(summary = "Obtener producto por código alfanumérico", description = "Obtiene un dato en especifico mediante su cófigo alfanumero de un producto en especifico")
+    @Operation(summary = "Obtener producto por código alfanumérico", description = "Obtiene un dato en especifico mediante su código alfanumérico de un producto en especifico")
     public ResponseEntity<ProductoResponseDTO> obtenerPorSku(@PathVariable String sku) {
         return productoService.obtenerPorSku(sku)
                 .map(ResponseEntity::ok)

@@ -29,7 +29,7 @@ public class CategoriaController {
 
     
     @GetMapping("/{id}")
-    @Operation(summary = "Obtener categoria por id", description = "Obtiene un dato en especifico por el id de cierta categoria")
+    @Operation(summary = "Obtener categoria por id", description = "Obtiene un dato en especifico por el id de una categoria en especifico.")
     public ResponseEntity<Categoria> obtenerPorId(@PathVariable Long id) {
         return categoriaService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
@@ -46,7 +46,7 @@ public class CategoriaController {
 
     
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar categoria", description = "Actualiza o modifica un registro de categoria en especifico")
+    @Operation(summary = "Actualizar categoria", description = "Actualiza o modifica un registro de una categoria en especifico")
     public ResponseEntity<Categoria> actualizar(
             @PathVariable Long id,
             @Valid @RequestBody Categoria datos) {
@@ -60,7 +60,7 @@ public class CategoriaController {
 
     
     @DeleteMapping("/{id}")
-    @Operation(summary = "Eliminar categoria", description = "Elimina permanentemente un registro de categoria.")
+    @Operation(summary = "Eliminar categoria", description = "Elimina permanentemente un registro de una categoria.")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         if (categoriaService.obtenerPorId(id).isEmpty()) {
             return ResponseEntity.notFound().build();
