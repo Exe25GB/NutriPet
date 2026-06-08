@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/precios")
 @RequiredArgsConstructor
-@Tag(name = "Pago", description = "Manipulacion Pagos")
+@Tag(name = "Precio", description = "Manipulacion Pagos")
 public class PrecioController {
 
     private final PrecioService precioService;
