@@ -46,7 +46,7 @@ public class CategoriaController {
 
     
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar categoria", description = "Actualiza o modifica un registro de una categoria en especifico")
+    @Operation(summary = "Actualizar categoria", description = "Actualiza o modifica un registro de una categoria en especifico por id.")
     public ResponseEntity<Categoria> actualizar(
             @PathVariable Long id,
             @Valid @RequestBody Categoria datos) {
@@ -60,7 +60,7 @@ public class CategoriaController {
 
     
     @DeleteMapping("/{id}")
-    @Operation(summary = "Eliminar categoria", description = "Elimina permanentemente un registro de una categoria.")
+    @Operation(summary = "Eliminar categorias por id", description = "Elimina permanentemente un registro de una categoria por id.")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         if (categoriaService.obtenerPorId(id).isEmpty()) {
             return ResponseEntity.notFound().build();

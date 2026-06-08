@@ -44,7 +44,7 @@ public class ProductoController {
 
 
     @PutMapping("/{id}")
-    @Operation(summary = "Actualizar producto", description = "Actualiza o modifica un registro de producto en especifico")
+    @Operation(summary = "Actualizar producto", description = "Actualiza o modifica un registro de producto en especifico por id.")
     public ResponseEntity<ProductoResponseDTO> actualizar(
             @PathVariable Long id,
             @Valid @RequestBody ProductoRequestDTO dto) {
@@ -54,7 +54,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Eliminar producto", description = "Elimina permanentemente un registro de producto. Puede ser uno o mas.")
+    @Operation(summary = "Eliminar producto", description = "Elimina permanentemente un registro de producto por id. Puede ser uno o mas.")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         if (productoService.obtenerPorId(id).isEmpty()) {
             return ResponseEntity.notFound().build();
