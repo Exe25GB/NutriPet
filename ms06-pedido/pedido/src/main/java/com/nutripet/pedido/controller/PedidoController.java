@@ -14,22 +14,27 @@ import com.nutripet.pedido.dto.PedidoRequestDTO;
 import com.nutripet.pedido.dto.PedidoResponseDTO;
 import com.nutripet.pedido.service.PedidoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/pedidos")
 @RequiredArgsConstructor
+@Tag(name = "Pedido", description = "Gestion de Pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
 
     @PostMapping
+    @Operation(summary = "Crear pedido")
     public ResponseEntity<PedidoResponseDTO> crearPedido(@Valid @RequestBody PedidoRequestDTO request) {
         return ResponseEntity.status(201).body(pedidoService.crearPedido(request));
     }
 
     @GetMapping("/producto/{idProducto}")
+    @Operation(summary = "Buscar producto")
     public ResponseEntity<List<PedidoResponseDTO>> buscarPorProducto(@PathVariable Long idProducto) {
         return ResponseEntity.ok(pedidoService.buscarPorProducto(idProducto));
     }
