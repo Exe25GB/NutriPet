@@ -16,16 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nutripet.usuario.model.TipoUsuario;
 import com.nutripet.usuario.service.TipoUsuarioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/tipos-usuarios")
+@Tag(name = "Usuarios", description = "Operaiones usuarios") 
 @RequiredArgsConstructor
 public class TipoLibroController {
 
     private final TipoUsuarioService tipoUsuarioService;
 
     @GetMapping
+    @Operation(summary = "Obtener todos los usuarios", description = "Obtiene una lista con todos los usuarios")
     public ResponseEntity<List<TipoUsuario>> listar() {
         return ResponseEntity.ok(tipoUsuarioService.obtenerTodas());
     }
