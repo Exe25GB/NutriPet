@@ -18,17 +18,21 @@ import com.nutripet.notificacion.DTO.NotificacionRequestDTO;
 import com.nutripet.notificacion.DTO.NotificacionResponseDTO;
 import com.nutripet.notificacion.service.NotificacionService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/notificaciones")
 @RequiredArgsConstructor
+@Tag(name = "Notificaciones", description = "Operaciones relacionales con las notificaciones")
 public class NotificacionController {
 
     private final NotificacionService notificacionService;
 
     @GetMapping
+    @Operation(summary = "Obtener todas las notificaciones", description = "Obtiene una lista con todas las notificaciones")
     public ResponseEntity<List<NotificacionResponseDTO>> listar() {
         return ResponseEntity.ok(notificacionService.obtenerTodas());
     }

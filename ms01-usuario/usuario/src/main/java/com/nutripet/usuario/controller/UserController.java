@@ -18,17 +18,21 @@ import com.nutripet.usuario.DTO.UserRequestDTO;
 import com.nutripet.usuario.DTO.UserResponseDTO;
 import com.nutripet.usuario.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
+@Tag(name = "Usuarios", description = ("Operaciones relacionales con los usuarios"))
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping
+    @Operation(summary = "Obtener todos los usuarios", description = "Obtiene una lista con todos los usuarios")
     public ResponseEntity<List<UserResponseDTO>> listar() {
         return ResponseEntity.ok(userService.obtenerTodos());
     }

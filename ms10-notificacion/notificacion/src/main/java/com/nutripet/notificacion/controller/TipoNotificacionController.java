@@ -16,16 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nutripet.notificacion.model.TipoNotificacion;
 import com.nutripet.notificacion.service.TipoNotificacionService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/tipos-notificaciones")
 @RequiredArgsConstructor
+@Tag(name = "Tipo notificaciones", description = "Operaciones relacionales con los tipos de notificaciones")
 public class TipoNotificacionController {
 
     private final TipoNotificacionService tipoNotificacionService;
 
     @GetMapping
+    @Operation(summary = "Obtener todos los tipos de notificaciones", description = "Obtiene una lista con todos los tipos de notificaciones")
     public ResponseEntity<List<TipoNotificacion>> listar() {
         return ResponseEntity.ok(tipoNotificacionService.obtenerTodas());
     }

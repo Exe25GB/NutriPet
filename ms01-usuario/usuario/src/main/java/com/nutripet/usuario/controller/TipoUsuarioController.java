@@ -22,14 +22,14 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/tipos-usuarios")
-@Tag(name = "Usuarios", description = "Operaiones usuarios") 
+@Tag(name = "TIpo Usuarios", description = "Operaiones tipo de usuarios") 
 @RequiredArgsConstructor
-public class TipoLibroController {
+public class TipoUsuarioController {
 
     private final TipoUsuarioService tipoUsuarioService;
 
     @GetMapping
-    @Operation(summary = "Obtener todos los usuarios", description = "Obtiene una lista con todos los usuarios")
+    @Operation(summary = "Obtener todos los tipos de usuarios", description = "Obtiene una lista con todos los tipos de usuarios")
     public ResponseEntity<List<TipoUsuario>> listar() {
         return ResponseEntity.ok(tipoUsuarioService.obtenerTodas());
     }

@@ -15,7 +15,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API 2026 Usuarios")
                         .version("1.0")
-                        .description("Documentacion de la API para el sistema de reserva de salas"));
+                        .description("Documentacion de la API para el sistema de usuarios"));
 
     }
 
