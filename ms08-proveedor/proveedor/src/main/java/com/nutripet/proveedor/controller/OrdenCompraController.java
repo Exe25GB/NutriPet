@@ -3,6 +3,9 @@ package com.nutripet.proveedor.controller;
 import com.nutripet.proveedor.dto.OrdenCompraRequestDTO;
 import com.nutripet.proveedor.dto.OrdenCompraResponseDTO;
 import com.nutripet.proveedor.service.OrdenCompraService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,11 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/ordenes-compra")
 @RequiredArgsConstructor
+@Tag(name = "Ordenes de compra", description = "Operaciones relacionado a ordenes de compra")
 public class OrdenCompraController {
 
     private final OrdenCompraService ordenCompraService;
 
     @GetMapping
+    @Operation(summary = "Obtener todos los productos.", description = "Lista todos los datos de orden de compra.")
     public ResponseEntity<List<OrdenCompraResponseDTO>> obtenerTodas() {
         return ResponseEntity.ok(ordenCompraService.obtenerTodas());
     }
