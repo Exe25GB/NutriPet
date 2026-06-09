@@ -5,6 +5,7 @@ import com.nutripet.proveedor.dto.ProveedorResponseDTO;
 import com.nutripet.proveedor.service.ProveedorService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/proveedores")
 @RequiredArgsConstructor
+@Tag(name = "Proveedor", description = "Operaciones relacionado a proveedor")
 public class ProveedorController {
 
     private final ProveedorService proveedorService;
