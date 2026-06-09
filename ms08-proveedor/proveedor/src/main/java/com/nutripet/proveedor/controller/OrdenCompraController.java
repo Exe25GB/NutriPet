@@ -29,6 +29,7 @@ public class OrdenCompraController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Obtener orden de compra por id.", description = "Obtiene un orden de compra en especifico buscando por su id.")
     public ResponseEntity<OrdenCompraResponseDTO> obtenerPorId(@PathVariable Long id) {
         return ordenCompraService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
@@ -36,11 +37,13 @@ public class OrdenCompraController {
     }
 
     @PostMapping
+    @Operation(summary = "Crear orden de compra", description = "Crear o agregar a traves de registro de datos uno o mas ordenes de compra.")
     public ResponseEntity<OrdenCompraResponseDTO> guardar(@Valid @RequestBody OrdenCompraRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ordenCompraService.guardar(dto));
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Actualizar orden de compra", description = "Actualiza o modifica un registro de orden de compra en especifico por id.")
     public ResponseEntity<OrdenCompraResponseDTO> actualizar(
             @PathVariable Long id, 
             @Valid @RequestBody OrdenCompraRequestDTO dto) {
@@ -48,12 +51,14 @@ public class OrdenCompraController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Eliminar orden de compra", description = "Elimina permanentemente un registro de orden de compra por id. Puede ser uno o mas.")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         ordenCompraService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/proveedor/{proveedorId}")
+    @Operation(summary = "Busqueda de orden de compra por proveedor", description = "Obtiene uno o mas ordenes de compra buscando desde el id del proveedor.")
     public ResponseEntity<List<OrdenCompraResponseDTO>> buscarPorProveedor(@PathVariable Long proveedorId) {
         return ResponseEntity.ok(ordenCompraService.buscarPorProveedor(proveedorId));
     }
