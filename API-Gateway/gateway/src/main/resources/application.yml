@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # Sin restricciones de metodo
+        - id: ms04-cliente-route
+          uri: lb://ms04-cliente 
+          predicates:
+            - Path=/api/clientes/**, /api/v2/cliente/**
+
+        # Solo lectura
+        - id: ms01-usuario-route
+          uri: lb://usuario
+          predicates:
+            - Path=/api/usuarios/**, /api/tipos-usuarios/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
