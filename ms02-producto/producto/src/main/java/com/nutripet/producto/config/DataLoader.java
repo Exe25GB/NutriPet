@@ -4,6 +4,9 @@ import com.nutripet.producto.model.Categoria;
 import com.nutripet.producto.model.Producto;
 import com.nutripet.producto.repository.CategoriaRepository;
 import com.nutripet.producto.repository.ProductoRepository;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.datafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,8 +17,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
-@Profile("dev")
+@Profile("test")
 @Component
+@RequiredArgsConstructor
+@Slf4j
 public class DataLoader implements CommandLineRunner {
 
     @Autowired
