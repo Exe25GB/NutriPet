@@ -24,10 +24,10 @@ import java.util.Random;
 public class DataLoader implements CommandLineRunner {
 
     @Autowired
-    private CategoriaRepository CategoriaRepository;
+    private CategoriaRepository categoriaRepository;
 
     @Autowired
-    private ProductoRepository ProductoRepository;
+    private ProductoRepository productoRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -41,10 +41,10 @@ public class DataLoader implements CommandLineRunner {
         for (int i = 0; i < 5; i++) {
             Categoria categoria = new Categoria();
             categoria.setNombre(faker.commerce().department()); 
-            CategoriaRepository.save(categoria);
+            categoriaRepository.save(categoria);
         }
 
-        List<Categoria> categorias = CategoriaRepository.findAll();
+        List<Categoria> categorias = categoriaRepository.findAll();
 
 
         for (int i = 0; i < 20; i++) {
@@ -66,7 +66,7 @@ public class DataLoader implements CommandLineRunner {
             
             producto.setMarca(faker.company().name());
 
-            ProductoRepository.save(producto);
+            productoRepository.save(producto);
         }
 
         System.out.println("¡Carga de datos finalizada! Se insertaron 5 categorías y 20 productos.");
