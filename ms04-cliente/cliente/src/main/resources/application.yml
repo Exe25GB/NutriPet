@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ms04-cliente
+  profiles:
+    active: dev
