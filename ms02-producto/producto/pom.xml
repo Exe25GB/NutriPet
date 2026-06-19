@@ -81,7 +81,7 @@
 			<version>21.11.0.0</version>
 		</dependency>
 
-		<!--Herramientas para poblar la bd-->
+		<!--DataFaker-->
 		<dependency>
 			<groupId>net.datafaker</groupId>
 			<artifactId>datafaker</artifactId>
