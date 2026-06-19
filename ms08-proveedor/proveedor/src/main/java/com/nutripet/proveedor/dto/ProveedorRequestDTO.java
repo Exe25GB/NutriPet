@@ -5,10 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// ═══════════════════════════════════════════════════
-// DTO DE ENTRADA · PROVEEDOR
-// ═══════════════════════════════════════════════════
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
