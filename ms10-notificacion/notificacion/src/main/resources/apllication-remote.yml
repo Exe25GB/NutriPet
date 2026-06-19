@@ -1,0 +1,19 @@
+server:
+  [cite_start]port: ${PORT} # El puerto será asignado dinámicamente por la plataforma PaaS [cite: 34]
+
+spring:
+  datasource:
+    [cite_start]url: jdbc:mysql://${DB_HOST}:${DB_PORT:3306}/${DB_NAME} # BD remota obligatoria [cite: 37]
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      [cite_start]defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE} # URL del Eureka Server remoto
