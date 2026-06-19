@@ -22,7 +22,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-// Definimos la ruta V2 y especificamos que produce HAL JSON (el estándar de HATEOAS)
 @RequestMapping(value = "/api/v2/productos", produces = MediaTypes.HAL_JSON_VALUE)
 @RequiredArgsConstructor
 @Tag(name = "Producto V2 (HATEOAS)", description = "Operaciones relacionadas a productos con HATEOAS")
@@ -57,7 +56,6 @@ public class ProductoControllerV2 {
         ProductoResponseDTO nuevo = productoService.guardar(dto);
         EntityModel<ProductoResponseDTO> entityModel = assembler.toModel(nuevo);
 
-        // Retornamos un 201 Created con la URI generada automáticamente por HATEOAS en los headers
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
@@ -89,7 +87,6 @@ public class ProductoControllerV2 {
     public ResponseEntity<EntityModel<ProductoResponseDTO>> obtenerPorSku(@PathVariable String sku) {
         return productoService.obtenerPorSku(sku)
                 .map(assembler::toModel)
-                // Se agrega manualmente el enlace de búsqueda por SKU
                 .map(model -> {
                     model.add(linkTo(methodOn(ProductoControllerV2.class).obtenerPorSku(sku)).withSelfRel());
                     return model;
