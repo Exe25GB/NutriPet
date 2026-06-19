@@ -1,0 +1,8 @@
+version: '0.1'
+
+services:
+  ms04-cliente:
+    build: ./ms04-cliente/cliente
+    container_name: nutripet-cliente
+    ports:
+      -"8084:8084"
