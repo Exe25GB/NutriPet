@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -26,7 +27,7 @@ import com.nutripet.pedido.dto.PedidoResponseDTO;
 import com.nutripet.pedido.model.Estado;
 import com.nutripet.pedido.service.PedidoService;
 
-@MockitoBean
+@WebMvcTest(PedidoController.class)
 public class PedidoControllerTest {
 
     @Autowired

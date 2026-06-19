@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,7 +21,7 @@ import com.nutripet.precio.dto.PrecioResponseDTO;
 import com.nutripet.precio.model.TipoCliente;
 import com.nutripet.precio.service.PrecioService;
 
-@MockitoBean
+@WebMvcTest(PrecioController.class)
 public class PrecioControllerTest {
 
     @Autowired
